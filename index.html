@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+   <title>1:1 Full Body Workout</title>
+
+   <!-- Style link -->
+   <link rel="stylesheet" href="css/styles.css">
+
+   <!-- Script link -->
+   <script src="/js/main.js" defer></script>
+</head>
+<body>
+   <header class="site-header">
+      <div class="container header-inner">
+         <a class="brand" href="#top" aria-label="Go to homepage">
+            <div class="logo">1:1</div>
+            <div>
+               <div style="font-weight:1000;color: var(--red);">Workout</div>
+               <div style="font-size:.8rem;color:var(--muted)">Full Body Workout</div>
+            </div>
+         </a>
+
+         <!-- <a class="logo brand" href="#">Body Workout</a> -->
+         <nav class="nav" aria-label="Main navigation">
+            <!-- <button class="nav-toggle" aria-expanded="false">☰</button> -->
+
+            <button class="nav-toggle" id="mobile-menu-btn" aria-expanded="false">
+               <span></span>
+               <span></span>
+               <span></span>
+            </button>
+            
+            <ul class="nav-list">
+               <li>
+                  <a href="#about">About</a>
+               </li>
+               <li>
+                  <a href="#levels">Workouts</a>
+               </li>
+               <li>
+                  <a href="#challenge">Challenge</a>
+               </li>
+               <li>
+                  <a href="#gallery">Gallery</a>
+               </li>
+               <!-- <li>
+                  <a href="#footer">Contact</a>
+               </li> -->
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <main>
+      <!-- HERO -->
+      <section id="hero" class="hero">
+         <div class="container hero-grid">
+            <div class="hero-content">
+               <h1>One-One Full Body Workout</h1>
+               <p>Simple and effective bodyweight workouts you can do anywhere. Choose a level and start your 30-day challenge.</p>
+               <a class="btn primary" href="#levels">Start Now</a>
+            </div>
+            <div class="hero-image" aria-hidden="true">
+               <img src="/assets/images/workout types.png" alt="Hero section image" class="image-placeholder">
+            </div>
+         </div>
+      </section>
+
+      <section id="about" class="about">
+         <div class="container">
+            <h2>1:1 Workout Benefits</h2>
+            
+            <div class="about-content">
+               <div class="about-image">
+                  <img src="assets/images/one-and-one-workout.jpg" alt="Person doing a 1:1 bodyweight workout session">
+               </div>
+
+               <div class="about-text">
+                  <p>The 1:1 Full Body Workout is a minimal, progressive bodyweight routine focused on compound movements, consistency, and recovery. Each session targets the whole body — strength, mobility, and cardio in one. Benefits include improved strength, better posture, fat loss, and increased energy.</p>
+                  
+                  <ul class="benefits">
+                     <li>Time-efficient full-body sessions</li>
+                     <li>Progressive levels to match your fitness</li>
+                     <li>No equipment required</li>
+                     <li>30-day challenge with daily logs to build habit</li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </section>
+
+
+      <!-- LEVELS -->
+      <section id="levels" class="levels">
+         <div class="container">
+            <h2>Workouts</h2>
+            <div class="cards">
+               <article class="card">
+                  <img src="/assets/images/workout types.png" alt="Level I image" class="card-image">
+                  <h3>Level 1</h3>
+                  <p class="sets">2 sets</p>
+                  <p>Beginner-friendly. Focus on form and consistent reps.</p>
+                  <button class="btn primary select-level" data-level="1">Choose Level 1</button>
+               </article>
+
+               <article class="card">
+                  <img src="/assets/images/workout types.png" alt="Level II image" class="card-image">
+                  <h3>Level 2</h3>
+                  <p class="sets">3 sets</p>
+                  <p>Intermediate: increased set volume for strength and endurance.</p>
+                  <button class="btn primary select-level" data-level="2">Choose Level 2</button>
+               </article>
+
+               <article class="card">
+                  <img src="/assets/images/workout types.png" alt="Level III image" class="card-image">
+                  <h3>Level 3</h3>
+                  <p class="sets">4 sets</p>
+                  <p>Advanced: higher volume and shorter rest to push limits.</p>
+                  <button class="btn primary select-level" data-level="3">Choose Level 3</button>
+               </article>
+            </div>
+         </div>
+      </section>
+
+      <!-- 30 DAY CHALLENGE -->
+      <section id="challenge" class="challenge">
+         <div class="container">
+            <h2>30-Day Challenge</h2>
+            <p class="muted">Pick a level and mark your daily workouts. Your progress is saved locally in this browser.</p>
+
+            <div class="challenge-controls">
+               <label for="challenge-level">Selected</label>
+               <select id="challenge-level" aria-label="Select workout level" class="btn ghost">
+                  <option value="">Choose a level</option>
+                  <option value="1">Level 1 — 2 sets</option>
+                  <option value="2">Level 2 — 3 sets</option>
+                  <option value="3">Level 3 — 4 sets</option>
+               </select>
+               <button id="reset-challenge" class="btn ghost">Reset Challenge</button>
+            </div>
+
+            <div id="challenge-grid" class="challenge-grid" aria-live="polite"></div>
+
+            <div id="day-log" class="day-log hidden">
+               <h3>Daily Log — Day <span id="day-number"></span></h3>
+               <div class="notes">
+                  <label for="notes">Notes (optional)</label>
+                  <textarea id="notes" rows="4" placeholder="How was the workout? reps (sets/time), weight used, mood..."></textarea>
+               </div>
+               <div class="log-actions">
+                  <button id="save-log" class="btn primary">Save</button>
+                  <button id="cancel-log" class="btn ghost">Cancel</button>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!-- GALLERY -->
+      <section id="gallery" class="gallery">
+         <div class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-grid">
+               <div class="gallery-item"> 
+                  <img src="assets/images/one-and-one-workout.jpg" alt="Workout placeholder 1">
+               </div>
+               <div class="gallery-item"> 
+                  <img src="assets/images/one-and-one-workout.jpg" alt="Workout placeholder 2">
+               </div>
+               <div class="gallery-item"> 
+                  <img src="assets/images/one-and-one-workout.jpg" alt="Workout placeholder 3">
+               </div>
+            </div>
+         </div>
+      </section>
+
+   </main>
+
+   <footer id="footer" class="site" id="top">
+      <div class="muted">
+         Copyrights © <span id="2025">2025</span> 
+         <strong>1:1 Workout</strong> — Minimal full body workout routines. Built with passion. 
+         <a href="#privacy">Privacy</a>
+      </div>
+   </footer>
+
+</body>
+</html>

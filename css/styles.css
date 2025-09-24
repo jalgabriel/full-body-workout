@@ -1,0 +1,482 @@
+/* Mobile-first base */
+:root {
+   --red: #e63946;
+   --maroon: maroon;
+   --dark: #212121;
+   --light: #f3f3f3;
+   --white: #ffffff;
+   --max-width: 1100px;
+   --muted: #705d5f;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+html,
+body {
+   height: 100%;
+}
+
+body {
+   margin: 0;
+   font-family: "system-ui", "apple-system, Segoe UI, Roboto", "Helvetica Neue", Arial;
+   color: var(--dark);
+   /* background: var(--white); */
+   background: linear-gradient(180deg, rgba(230, 57, 70, 0.06), transparent);
+   /* macOS WebKit/Blink */
+   -webkit-font-smoothing: antialiased;
+   /* Firefox on macOS */
+   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+   text-decoration: none;
+}
+
+
+/* Typography Styles */
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+   font-family: "Segoe UI", Roboto, system-ui, sans-serif;
+   font-weight: 700;
+   line-height: 1.2;
+   margin: 0 0 0.75rem;
+   color: var(--dark);
+}
+
+/* Main page heading */
+h1 {
+   font-size: clamp(2rem, 5vw, 3rem);
+   letter-spacing: -0.5px;
+}
+
+/* Section titles */
+h2 {
+   font-size: clamp(1.5rem, 3vw, 2.25rem);
+   border-left: 4px solid var(--red);
+   padding-left: 0.5rem;
+   margin-bottom: 1rem;
+}
+
+/* Subtitles */
+h3 {
+   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+   color: var(--red);
+   margin-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+p {
+   font-size: 1.05rem;
+   line-height: 1.6;
+   margin-bottom: 1rem;
+   color: #333;
+}
+
+/* Muted/secondary text */
+p.muted, .muted {
+   color: var(--muted);
+   font-size: 0.95rem;
+}
+
+/* Narrow max-width for long paragraphs */
+.about-text p,
+.hero-content p {
+   max-width: 60ch; /* ideal readable width */
+}
+
+/* Add emphasis styles */
+strong {
+   color: var(--red);
+   font-weight: 700;
+}
+
+
+
+.container {
+   max-width: var(--max-width);
+   margin: 0 auto;
+   padding: 1rem;
+}
+
+.header-inner {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.brand {
+   display: flex;
+   align-items: center;
+   gap: .75rem;
+   text-decoration: none;
+   color: inherit;
+   cursor: pointer;
+}
+
+.logo {
+   width: 2.25rem;
+   height: 2.25rem;
+   border-radius: 10px;
+   /* background: linear-gradient(135deg, var(--red), #06b6d4); */
+   background: var(--red);
+   display: grid;
+   place-items: center;
+   color: var(--white);
+   font-weight: 700;
+   cursor: pointer;
+   text-decoration: none;
+}
+
+/* NAV */
+.nav {
+   position: relative;
+}
+
+.nav-toggle {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   border: none;
+   cursor: pointer;
+   width: 2.25rem;
+   height: 2.25rem;
+   background-color: transparent;
+   padding: 0;
+}
+
+.nav-toggle span {
+   width: 2.25rem;
+   height: 0.2rem;
+   background-color: var(--red);
+}
+
+/* Mobile nav styles */
+.nav-list {
+   list-style: none;
+   padding: 2rem 1.5rem;
+   margin: 0;
+
+   position: fixed;
+   top: 0;
+   right: 0;
+   height: 100%;
+   width: 225px;
+   background: var(--white);
+   box-shadow: -2px 0 6px rgba(0,0,0,0.15);
+
+   transform: translateX(100%);
+   transition: transform 0.3s ease-in-out;
+
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   z-index: 1000;
+}
+
+.nav-list.open {
+   transform: translateX(0);
+}
+
+.nav-list li {
+   margin: 0; /* handled by gap */
+}
+
+.nav-list a {
+   color: var(--red);
+   text-decoration: none;
+   font-size: 1.2rem;
+   font-weight: 500;
+}
+
+.nav-list a:hover,
+.nav-list a:active {
+   color: var(--maroon);
+   border-bottom: 3px solid var(--maroon);
+}
+
+@media (min-width: 700px) {
+   .nav-list {
+      position: static;
+      transform: none;
+      transition: none;
+      flex-direction: row;
+      background: none;
+      box-shadow: none;
+      height: auto;
+      width: auto;
+      padding: 0;
+      gap: 1rem;
+   }
+
+   .nav-toggle {
+      display: none;
+   }
+
+   /* #mobile-menu-btn {
+      display: none;
+   } */
+}
+
+/* HERO */
+.hero {
+   /* background: linear-gradient(180deg, rgba(230, 57, 70, 0.06), transparent); */
+   padding: 2rem 0;
+}
+
+.hero-grid {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 1rem;
+   align-items: center;
+}
+
+.hero-content h1 {
+   font-size: 1.75rem;
+   margin: 0 0 0.5rem;
+}
+
+.hero-content p {
+   margin: 0 0 1rem;
+   color: #444;
+   font-size: 1.5rem;
+   text-align: justify;
+}
+
+.btn {
+   display: inline-block;
+   padding: 0.6rem 1rem;
+   border-radius: 8px;
+   border: 0;
+   cursor: pointer;
+   font-weight: 600;
+}
+
+.btn.primary {
+   background: var(--red);
+   color: var(--white);
+}
+
+.btn.ghost {
+   background: transparent;
+   border: 1px solid #ddd;
+   color: var(--dark);
+}
+
+.btn.ghost:hover, 
+.btn.primary:hover {
+   background-color: var(--maroon);
+   color: var(--light);
+}
+
+.image-placeholder {
+   width: 100%;
+   height: auto;
+   border-radius: 8px;
+   /* background: linear-gradient(90deg, var(--light), #fff); */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: #999;
+   border: 1px solid var(--maroon);
+}
+
+/* ABOUT SECTION */
+.about {
+   padding: 1.5rem 1rem;
+   text-align: justify;
+}
+
+.about-content {
+   display: flex;
+   flex-direction: column;
+   gap: 1.25rem;
+   align-items: center;
+   max-width: 1100px;
+   margin: 0 auto;
+}
+
+.about-image img {
+   width: 100%;
+   border: 1px solid var(--maroon);
+   border-radius: 8px;
+}
+
+.about-text {
+   max-width: 600px;
+   font-size: 1rem;
+   /* margin-top: 0; */
+}
+
+/* Tablet (min-width: 768px) */
+@media (min-width: 768px) {
+   .about-content {
+      flex-direction: row;
+      justify-content: space-between;
+   }
+
+   .about-image,
+   .about-text {
+      flex: 1;
+   }
+
+   .about-text {
+      padding-left: 2rem;
+   }
+}
+
+/* LEVELS */
+.levels {
+   /* background: linear-gradient(180deg, rgba(230, 57, 70, 0.06), transparent); */
+   padding: 1rem 0;
+}
+
+.cards {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 1rem;
+}
+
+.card {
+   background: var(--light);
+   padding: 1rem;
+   /* border: 1px solid var(--red); */
+   border-radius: 10px;
+}
+
+.card .sets {
+   font-weight: 700;
+   color: var(--red);
+}
+
+.card-image {
+   width: 100%;
+   border: 1px solid var(--maroon);
+   border-radius: 8px;
+}
+
+/* CHALLENGE */
+.challenge {
+   /* background: linear-gradient(180deg, rgba(230, 57, 70, 0.06), transparent); */
+   padding: 1.5rem 0;
+}
+
+.challenge-controls {
+   display: flex;
+   gap: 0.5rem;
+   flex-wrap: wrap;
+   align-items: center;
+   margin-bottom: 1rem;
+}
+
+.challenge-grid {
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   gap: 0.5rem;
+}
+
+.day {
+   padding: 0.6rem;
+   border-radius: 6px;
+   background: #fff;
+   border: 1px solid #eee;
+   text-align: center;
+   cursor: pointer;
+}
+
+.day.completed {
+   background: linear-gradient(180deg, #dff0ea, #d3fbe6);
+   border-color: #bfe7cf;
+}
+
+.day.today {
+   box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.08);
+}
+
+.day small {
+   display: block;
+   color: #666;
+}
+
+.day-log {
+   margin-top: 1rem;
+   background: #fff;
+   border: 1px solid #eee;
+   padding: 1rem;
+   border-radius: 8px;
+}
+
+.hidden {
+   display: none;
+}
+
+.notes {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+   width: auto;
+   margin-bottom: 1rem;
+   /* padding-bottom: 1rem; */
+}
+
+/* GALLERY */
+.gallery {
+   padding: 1.5rem 0;
+}
+
+.gallery-grid {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 0.5rem;
+}
+
+.gallery-item img {
+   width: 100%;
+   object-fit: cover;
+   border-radius: 8px;
+}
+
+/* FOOTER */
+footer {
+   margin-top: 2rem;
+   text-align: center;
+   padding: 1rem 0;
+   background-color: var(--light);
+   color: var(--muted);
+   font-size: .9rem;
+}
+
+/* Utility classes */
+.muted {
+   color: var(--muted);
+}
+
+a.icon {
+   display: inline-flex;
+   align-items: center;
+   gap: .5rem;
+}
+
+/* Tablet */
+@media (min-width: 700px) {
+   .hero-grid {
+      grid-template-columns: 1fr 1fr;
+   }
+
+   .cards {
+      grid-template-columns: repeat(3, 1fr);
+   }
+
+   .benefits {
+      grid-template-columns: repeat(2, 1fr);
+   }
+
+   .challenge-grid {
+      grid-template-columns: repeat(10, 1fr);
+   }
+   
+   .gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+   }
+}
